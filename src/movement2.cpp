@@ -5,6 +5,7 @@
 Movement::Movement(float Kp, float Ki, float Kd, int chanelA, int ChanelB, float diameter, float ppr){
     encoder = new Encoder(chanelA,ChanelB,ppr,diameter);
     pid = new PID(Kp,Ki,Kd);
+    test = "oke"
 
 }
 
