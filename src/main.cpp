@@ -2,7 +2,10 @@
 #include "../lib/movement.h"
 
 
-Movement Fl*, *Fr, Rl*, Rr*;
+Movement* Fl;
+Movement* Fr;
+Movement* Rl;
+Movement* Rr;
 
 void setup() {
   Fl = new Movement(1,1,1,1,1,1,1);  
@@ -16,10 +19,15 @@ void setup() {
 }
 
 void loop() {
-  Fr->update(10); //output di kirim ke motordriver sebagai pwm
+  Fl->update(10);
+  Fr->update(10);
+  Rl->update(10);
+  Rr->update(10);
+  //output di kirim ke motordriver sebagai pwm
   // put your main code here, to run repeatedly:
   
 }
+
 
 void move(int ly, int lx, int rx){
     int frontLeft = ly + lx + rx;
@@ -37,10 +45,10 @@ if (max_val > 255) {
 }
 
 //untuk menghubungkan hasil hitungan ke masing masing objek
-float outputfrontLeft = fl->update(frontLeft);
-float outputfrontRight = fr->update(frontRight);
-float outputrearLeft = rl->update(rearLeft);
-float outputrearRight = rr->update(rearRight);
+float outputfrontLeft = Fl->update(frontLeft);
+float outputfrontRight = Fr->update(frontRight);
+float outputrearLeft = Rl->update(rearLeft);
+float outputrearRight = Rr->update(rearRight);
 
 //mengirim hasil akhir (pwm) ke motor driver
 //sepertinya masih ada kekurangan bagian pin pwm

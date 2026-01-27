@@ -4,12 +4,12 @@
 //menggabungkan movement
 
 #include <Arduino.h>
-class Encoder;
+class encoder;
 class PID;
 
 class Movement{
     private:
-        Encoder* encoder;
+        encoder* encoder;
         PID* pid;
     public:
         Movement(float Kp, float Ki, float Kd, int chanelA, int ChanelB, float diameter, float ppr);

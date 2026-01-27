@@ -1,10 +1,10 @@
 #include "../lib/encoder.h"
 
 
-        Encoder::Encoder(int a, int b, float pulses, float diameter):
+        encoder::encoder(int a, int b, float pulses, float diameter) :
          pinA(a), pinB(b), ppr(pulses), D(diameter){}; 
 
-        void Encoder::begin(){
+        void encoder::begin(){
             pinMode(pinA, INPUT_PULLUP);
             pinMode(pinB, INPUT_PULLUP);
          }
@@ -12,13 +12,13 @@
          /* IRAM_ATTR adalah instruksi khusus untuk ESP32 agar fungsi 
          diletakkan di RAM internal (bukan Flash memory). Biar lebih cepat*/ 
 
-         void IRAM_ATTR Encoder::handleInterrupt() {
+         void IRAM_ATTR encoder::handleInterrupt() {
             //menentukan apakah roda bergerak maju atau mundur
             if (digitalRead(pinB) == HIGH) count++;
             else count--;
         }
 
-        void Encoder::update(){
+        void encoder::update(){
             unsigned long Tsekarang = millis();
             unsigned deltaTime = Tsekarang - Tlama;
             if(deltaTime > 50){ //setiap 50 ms akan dijalankan
@@ -29,4 +29,4 @@
             }
         }
 
-        float Encoder::getRPM() const { return RPMsekarang; }
+        float encoder::getRPM() const { return RPMsekarang; }

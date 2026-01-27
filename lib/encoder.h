@@ -14,7 +14,7 @@ class encoder{
         float RPMsekarang = 0;
 
     public:
-        Encoder(int a, int b, float pulses, float diameter);
+        encoder(int a, int b, float pulses, float diameter);
         void begin();
 
          /* IRAM_ATTR adalah instruksi khusus untuk ESP32 agar fungsi 
