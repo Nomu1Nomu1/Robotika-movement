@@ -2,7 +2,7 @@
 #define ENCODER_H
 #include <Arduino.h>
 
-class encoder{
+class Encoder{
     private:
         int pinA, pinB;
         float ppr;
