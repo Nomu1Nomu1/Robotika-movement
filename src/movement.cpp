@@ -1,10 +1,12 @@
+
 #include "../lib/movement.h"
 #include "../lib/encoder.h"
 #include "../lib/PID.h"
 
 Movement::Movement(float Kp, float Ki, float Kd, int chanelA, int ChanelB, float diameter, float ppr){
-    encoder = new Encoder(chanelA, ChanelB, ppr, diameter);
-    pid = new PID(Kp, Ki, Kd);
+    encoder = new Encoder(chanelA,ChanelB,ppr,diameter);
+    pid = new PID(Kp,Ki,Kd);
+   
 }
 
 float Movement::update(float target){
@@ -13,5 +15,5 @@ float Movement::update(float target){
 }
 
 void Movement::begin(){
-    encoder->begin();
+    encoder -> begin();
 }
